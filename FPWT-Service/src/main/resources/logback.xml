@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- Writes Logs To Console for INFO -->
+	<appender name="INFO_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%X{clientRMID}, [%date], [%thread], %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- Writes Logs To File for INFO -->
+	<appender name="INFO_FILE_APPENDER" class="ch.qos.logback.core.FileAppender">
+		<file>C:/FPWT-Service/logs/Service.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%X{clientRMID}, [%date], [%thread], %-5level %logger{36} - %msg%n
+			</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- Writes Logs To File for DEBUG-->
+	<appender name="DEBUG_FILE_APPENDER" class="ch.qos.logback.core.FileAppender">
+		<file>C:/FPWT-Service/logs/Service.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%X{clientRMID}, [%date], [%thread], %-5level %logger{36} - %msg%n
+			</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- Writes Logs To Console for ERROR -->
+	<appender name="ERROR_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%X{clientRMID}, [%date], [%thread], %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	
+	<!-- Writes Logs To File for ERROR -->
+	<appender name="ERROR_FILE_APPENDER" class="ch.qos.logback.core.FileAppender">
+		<file>C:/FPWT-Service/logs/Service.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%X{clientRMID}, [%date], [%thread], %-5level %logger{36} - %msg%n
+			</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+
+	<root level="INFO">
+		<appender-ref ref="INFO_STDOUT" />
+		<appender-ref ref="INFO_FILE_APPENDER" />
+		<appender-ref ref="ERROR_STDOUT" />
+		<appender-ref ref="ERROR_FILE_APPENDER" />
+	</root>
+
+	<root level="DEBUG">
+		<appender-ref ref="DEBUG_FILE_APPENDER" />
+	</root>
+
+</configuration>
